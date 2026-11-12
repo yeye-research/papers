@@ -2,8 +2,10 @@
 
 ### When a Returned Empty Response Is Recorded as a Completed Answer
 
-**In preparation** · English edition pending · the current manuscript is complete in Chinese,
-~93,100 characters, nine sections
+**In preparation** · **English edition exists, partly translated** — see **[`paper.md`](paper.md)**:
+Abstract and §1 in English; §2–§6 and appendices still in the Chinese manuscript
+(~93,100 characters, nine sections). Every number in this page should be read against that file's
+"Translation status" table.
 
 ---
 
