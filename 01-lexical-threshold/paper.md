@@ -1,10 +1,6 @@
 # What a Lexical Threshold Commits You To: Auditing Set-Overlap Metrics in Citation Verification
 
-**Ye Ye** · research account · November 2026
-
-> **Working paper — not peer reviewed.** This directory is the complete package: the manuscript, the figures, and the scripts that produce every number in it. Nothing here is asserted that the released files cannot re-derive.
-
-> **Note on artifact names.** Some filenames in the replication package are non-ASCII, because that is how they were named when the results were produced. They are reproduced verbatim so the scripts still run in place; a reader who only wants the argument can ignore the backticked paths.
+**Anonymous authors** · Paper under double-blind review
 
 ---
 
@@ -21,6 +17,10 @@ We present a complete audit of one real citation-checking pipeline: 308 sentence
 We also report three constraints on our own results: the 3.00\% false-positive rate is a **non-adversarial lower bound**; the 23-point spread of our interval comes entirely from how "unclear" labels are treated; and category proportions shift between 30\% and 80\% across four labelling passes. **An additional fully independent rater, re-labelling all 100 sentences, moves the central estimate (unclear-dropped accounting) from 26.57\% to 31.39\% (a 4.82-point gap), while agreement on A versus non-A stays at 74\%** — so our central figure is a magnitude, not a precise value.
 
 **Keywords**: citation verification; threshold audit; non-identifiability; cost-sensitive decision making; multiple comparisons; annotation reliability
+
+---
+
+
 
 ---
 
@@ -117,7 +117,7 @@ claiming someone else's result:**
   (2010, *GEB*) decomposes Jaccard exactly into turnover and nestedness components and notes
   that under the nestedness component the reading reflects only the ratio of set sizes. Webber,
   Moffat and Zobel (2010, *TOIS*) state this explicitly in motivating rank-biased overlap;
-  Fagin et al. (2003) and Kuncheva (2007) point the same way.
+  Fagin et al. (2003) and Koleff et al. (2003) point the same way.
 - **The phenomenon has prior owners too.** That sentence-level overlap metrics correlate
   weakly with human judgements has been measured for over a decade in NLP evaluation (Reiter
   and Belz 2009; Reiter 2018; Novikova 2017; Kryscinski 2019; Bhandari 2020; Fabbri 2021), and
@@ -237,7 +237,7 @@ introduction follow the logical order; the body follows the order of the materia
 |---|---|
 | To be first to observe that a threshold implies a cost ratio | **Law and economics states it at textbook level** (Posner 1973; Kaplow 2012); cost-sensitive learning (Elkan 2001; Provost and Fawcett 2001; Drummond and Holte 2006) is another branch of the same result; upstream, Neyman–Pearson 1933 |
 | To be first to apply a formalised standard of proof outside law | **Burden-of-proof analysis in law and economics already covers non-legal settings** (internal organisational decisions, contractual acceptance criteria, medical triage). The sentence would be killed by a single citation |
-| To be first to reveal that $J$ degenerates on nested sets | **Has prior owners**: Baselga 2010; Webber 2010; Fagin 2003; Kuncheva 2007. Our increment is the dose and the consequences |
+| To be first to reveal that $J$ degenerates on nested sets | **Has prior owners**: Baselga 2010; Webber 2010; Fagin 2003; Koleff et al. 2003. Our increment is the dose and the consequences |
 | To be first to note that sentence-level overlap disagrees with human labels | **Has prior owners**: **over a decade** of measurement in NLP evaluation (see **the boundary of the main result** in §1.3). What we add is a sharper word — non-identifiability |
 | To be first to decide provenance by lexical overlap plus a threshold | Decades of routine practice in plagiarism detection and code cloning (MOSS, JPlag, winnowing) |
 
@@ -700,8 +700,8 @@ not know:
 
 - **Mechanism**: Baselga 2010 (*GEB* 19(1):134–143) decomposes Jaccard exactly into turnover and
   nestedness, and shows that under nestedness the reading reflects only the ratio of set sizes; Webber–
-  Moffat–Zobel 2010 (*TOIS* 28(4) Art. 20) state it in motivating RBO; Fagin et al. 2003 and Kuncheva
-  2007 agree.
+  Moffat–Zobel 2010 (*TOIS* 28(4) Art. 20) state it in motivating RBO; Fagin et al. 2003 and Koleff et al.
+  2003 agree.
 - **Phenomenon**: sentence/segment-level overlap metrics correlate weakly with human judgement — Reiter &
   Belz 2009 / Reiter 2018 / Novikova 2017 / Kryscinski 2019 / Bhandari 2020 / Fabbri 2021.
 - **Increment here**: changing the word from "weak correlation" to "**non-identifiability**", measuring
@@ -938,7 +938,7 @@ sum to less than 1. Measured at $t=7$: $3.00\%+26.57\%=29.57\%$, **far below 1**
 
 | # | Increment | How minimal it is |
 |---|---|---|
-| **1** (main result) | On nested decision sets, set-overlap metrics are **non-identifiable** for the false-negative rate; this paper applies it to citation checking and **measures the dose**: $J=0.5$ can correspond to 18% and 80% (a 62-point gap), the real data contain **127 counter-examples at zero distance**, and all ten LCS buckets contain both judgements | † **The mechanism and the phenomenon both have prior sources.** Nestedness degeneracy: Baselga 2010 *GEB* / Webber–Moffat–Zobel 2010 *TOIS* / Fagin 2003 / Kuncheva 2007; "overlap metrics disagree with human judgement": over a decade of measurement in NLP evaluation (§6.0.1). **Three increments here: the word (non-identifiability, not weak correlation), the dose, and where it forces the choice.** **"First to prove $J$ degenerates" is forbidden**; full discussion and references in §6.0 |
+| **1** (main result) | On nested decision sets, set-overlap metrics are **non-identifiable** for the false-negative rate; this paper applies it to citation checking and **measures the dose**: $J=0.5$ can correspond to 18% and 80% (a 62-point gap), the real data contain **127 counter-examples at zero distance**, and all ten LCS buckets contain both judgements | † **The mechanism and the phenomenon both have prior sources.** Nestedness degeneracy: Baselga 2010 *GEB* / Webber–Moffat–Zobel 2010 *TOIS* / Fagin 2003 / Koleff et al. 2003; "overlap metrics disagree with human judgement": over a decade of measurement in NLP evaluation (§6.0.1). **Three increments here: the word (non-identifiability, not weak correlation), the dose, and where it forces the choice.** **"First to prove $J$ degenerates" is forbidden**; full discussion and references in §6.0 |
 | **2** | **First applying the standard conclusion "threshold = cost assumption" to citation checking, and measuring the concrete interval** ($w^*=1.16$–$1.41$) | † **Demoted wording**: the principle is standard — **Neyman–Pearson 1933 → law and economics (Kaplow 2012) → cost-sensitive learning (Elkan 2001)** — and **the contribution is instantiation and quantification, not the principle**. Neither "first to discover" nor "first application outside economics" |
 | **3** | Reading $\mathrm{EPR}(t)$ as $\alpha$, doing **multiple comparisons** in $\alpha$ coordinates, and concluding "under FWER the available data cannot certify it; under FDR, $t\ge9$" | A **concrete arithmetic result**, not a framing |
 | **4** | Showing that $\mathrm{LCS}$ is **not** a monotone proxy for a likelihood ratio ($\Lambda$ inverts at $k=5\to6$), so the three cut-offs do not inherit the Fellegi–Sunter optimality | The measurement most specific to this paper |
@@ -4187,7 +4187,7 @@ already has prior sources**.
   set sizes**;
 - Webber, Moffat & Zobel (2010, *TOIS* 28(4) Art. 20), in motivating RBO, state explicitly that
   **"Jaccard is degenerate on nested prefixes"**;
-- Fagin et al. (2003, *SIDMA* 17(1):134–160) and Kuncheva (2007) reach the same conclusion.
+- Fagin et al. (2003, *SIDMA* 17(1):134–160) and Koleff et al. (2003) reach the same conclusion.
 
 So this chapter **claims no new mechanism**. It claims exactly one thing:
 
@@ -6300,7 +6300,7 @@ large-scale protein identifications by mass spectrometry. *Nature Methods*, 4(3)
 doi:10.1038/nmeth1019
 
 Elkan, C. (2001). The foundations of cost-sensitive learning. In *Proceedings of IJCAI 2001*,
-973–978.
+973–977.
 
 Fabbri, A. R., Kryscinski, W., McCann, B., Xiong, C., Socher, R., & Radev, D. (2021). SummEval:
 Re-evaluating summarization evaluation. *Transactions of the ACL*, 9, 391–409.
@@ -6337,12 +6337,12 @@ doi:10.1073/pnas.87.6.2264
 Krishna, K., Roy, A., & Iyyer, M. (2021). Hurdles to progress in long-form question answering.
 In *Proceedings of NAACL 2021*, 4940–4957. doi:10.18653/v1/2021.naacl-main.393
 
-Kryscinski, W., Keskar, N. S., McCann, B., Xiong, C., & Socher, R. (2019). Neural text
-summarization: A critical evaluation. In *Proceedings of EMNLP 2019*, 2946–2959.
-doi:10.18653/v1/D19-1051
+Koleff, P., Gaston, K. J., & Lennon, J. J. (2003). Measuring beta diversity for presence–absence
+data. *Journal of Animal Ecology*, 72(3), 367–382. doi:10.1046/j.1365-2656.2003.00710.x
 
-Kuncheva, L. I. (2007). A bound on $k$-nearest neighbour error rate in the presence of
-label noise. *IEEE Transactions on Pattern Analysis and Machine Intelligence*, 29(12), 2207–2211.
+Kryscinski, W., Keskar, N. S., McCann, B., Xiong, C., & Socher, R. (2019). Neural text
+summarization: A critical evaluation. In *Proceedings of EMNLP 2019*, 540–551.
+doi:10.18653/v1/D19-1051
 
 Lin, C.-Y. (2004). ROUGE: A package for automatic evaluation of summaries. In *Text Summarization
 Branches Out (WAS 2004)*, 74–81.
@@ -6359,7 +6359,7 @@ hypotheses. *Philosophical Transactions of the Royal Society A*, 231, 289–337.
 doi:10.1098/rsta.1933.0009
 
 Novikova, J., Dušek, O., Cercas Curry, A., & Rieser, V. (2017). Why we need new evaluation metrics
-for NLG. In *Proceedings of SIGdial 2017*, 224–234. doi:10.18653/v1/D17-1238
+for NLG. In *Proceedings of EMNLP 2017*, 2241–2252. doi:10.18653/v1/D17-1238
 
 Prechelt, L., Malpohl, G., & Philippsen, M. (2002). Finding plagiarisms among a set of programs
 with JPlag. *Journal of Universal Computer Science*, 8(11), 1016–1038.
@@ -6395,7 +6395,7 @@ fingerprinting. In *Proceedings of SIGMOD 2003*, 76–85. doi:10.1145/872757.872
 Sunstein, C. R. (2005). *Laws of Fear: Beyond the Precautionary Principle*. Cambridge University
 Press. doi:10.1017/CBO9780511790850
 
-Volokh, A. (1997). $n$ guilty men. *University of Pennsylvania Law Review*, 146(2), 173–216.
+Volokh, A. (1997). $n$ guilty men. *University of Pennsylvania Law Review*, 146(1), 173–216.
 doi:10.2307/3312707
 
 Webber, W., Moffat, A., & Zobel, J. (2010). A similarity measure for indefinite rankings. *ACM
