@@ -1,0 +1,22 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Build artefacts that should not be committed
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Large generated media (keep the PDFs that ship with papers)
+*.mp4
+*.mov
