@@ -8,7 +8,7 @@
 
 We present a complete audit of one real citation-checking pipeline: 308 sentences under review, 1,803 constructed negative pairs, 46 source documents, and 100 blind human labels drawn by stratified sampling. **The paper has one main result, and it is negative; the other two numbers are consequences it forces.**
 
-**Main result: substituting a set-overlap metric does not work.** On nested decision sets, an overlap index such as Jaccard similarity $J$ reduces to a ratio of two empirical distributions — the denominator is cancelled — so it carries no information about the quantity of interest, which *is* that denominator. The distinction matters: this is **non-identifiability, not weak correlation**. Weak correlation can be mitigated with more data; non-identifiability cannot, because the index simply does not contain the information at that value. In our human-labelled sample, **127 sentence pairs share an identical overlap value yet received opposite labels**. **Scope:** what is ruled out is *this family* (set-overlap indices); non-overlap approaches (semantic embeddings, entailment judges) are **not tested and are outside the scope of this claim**.
+**Main result: substituting a set-overlap metric does not work.** On nested decision sets, an overlap index such as Jaccard similarity $J$ reduces to a ratio of two empirical distributions — **the original denominator $n_1$ cancels out** — so it carries no information about the quantity of interest, which *is* that denominator. The distinction matters: this is **non-identifiability, not weak correlation**. Weak correlation can be mitigated with more data; non-identifiability cannot, because the index simply does not contain the information at that value. In our human-labelled sample, **127 sentence pairs share an identical overlap value yet received opposite labels**. **Scope:** what is ruled out is *this family* (set-overlap indices); non-overlap approaches (semantic embeddings, entailment judges) are **not tested and are outside the scope of this claim**.
 
 **Consequence one: with this family of metrics closed off, the threshold is the only knob the present system can turn — and scanning it turns the bare integer into a statement of cost.** The deployed $t=7$ is equivalent to asserting that missing a fabricated claim is **1.16–1.41 times** more costly than wrongly flagging a genuine one; under equal weighting the optimum is $t=5$, differing from $t=7$ by **0.92 percentage points**. Across nine combinations (three false-negative regimes × three false-positive accountings), $t=7$ remains optimal in six.
 
@@ -1155,7 +1155,7 @@ behalf**. ① gives it the widest latitude.
 > rather than 207). **Human labels falsified this assumption**: of the 207, only **53–124 are
 > actually findable in their sources (point estimate 82)**.
 >
-> **"We adopt ①" binds the *rule* of ①, not the *numbers* of ①.** The values printed in that row
+> **"We adopt ①" binds the *rule* of ①, not the *numbers* of ①.** The values printed in that table
 > — 67.21 / 87.34 / 84.15 — **are void and must not be cited as true values**; **the rule of ①
 > remains in force.** This is not a table beyond repair: on the contrary, **the three accountings
 > are recomputed from the 53–124 range along the same route** (upper 40.14 / point 26.57 /
@@ -1164,7 +1164,7 @@ behalf**. ① gives it the widest latitude.
 
 > **Two axes; their landing points must be stated separately, or a reader will multiply them.**
 > · **This table's axis**: does the to-human band (call it L4) enter the numerator? We say no — L4
-> enters neither the numerator nor, by removal, the denominator. In the arithmetic: **the numerator
+> enters neither the numerator nor the error count. In the arithmetic: **the numerator
 > counts only the A labels within L1–L3; the denominator remains all 308, including those 62**.
 > · **The three-accounting axis**: within L1–L3, how is a human "unclear" (C) counted? Upper bound
 > counts it found / point removes it / lower bound counts it not found.
@@ -1298,8 +1298,8 @@ $$J\big(S(t_1),S(t_2)\big) = \frac{|S(t_1)\cap S(t_2)|}{|S(t_1)\cup S(t_2)|}$$
 | $S(6)$ vs $S(7)$ | $187/207$ | 0.9034 |
 | $S(7)$ vs $S(8)$ | $207/223$ | 0.9283 |
 
-**The reference point cannot be dropped**: all three $J$ values are computed against **the decision
-set at $t=7$**, so **the denominator follows the reference point** (the first two share
+**The reference point cannot be dropped**: all three $J$ values pair a low-$t$ set with the
+**$t\ge7$ side**, so **the denominator follows that side's set** (the first two share
 $|S(7)|=207$; the third uses $|S(8)|=223$). **Misusing** $J(S(4),S(8))=120/223=0.5381$ would give 0.538,
 not 0.580.
 
@@ -2674,7 +2674,7 @@ flattening the directory makes most of them fail. **All 30 scripts in the packag
 
 > **Two boundaries must be stated.**
 > ① **Anonymisation touched only identity and paths** (internal role names became "Rater 1 / second
-> rater"; absolute paths became relative), **with no number or line of logic changed**; the only logical
+> rater"; absolute paths became relative), **with no number changed**; the only change of a logical kind
 > change replaced a hard-coded working root with a derivation from `__file__`, after which all
 > self-tests pass.
 > ② **The five scoring pages (`.html`, about 1.6 MB each) were not included** — they embed the source
@@ -2710,7 +2710,8 @@ flattening the directory makes most of them fail. **All 30 scripts in the packag
 > proportional scaling $\mathrm{ENR}(t)=f\cdot\mathrm{ENR}_{\text{machine upper}}(t)$, which **is an
 > assumption, not a measurement** ($f$ = 0.5973 / 0.3954 / 0.2574 for upper / point / lower). Cells at
 > $t\ge9$ (high end) and $t\le3$ (low end) are marked "scaled extrapolation" and are not cited as
-> conclusions — **this paper is answerable only for $t=4\dots8$** (reasons at the end of §5.5.4).
+> conclusions — **this paper is answerable only for $t=4\dots8$** (reasons at the end of §5.5.4); points
+outside that range are used **only to locate where a crossing falls**, never as a conclusion.
 
 ---
 
@@ -4046,7 +4047,7 @@ $$\Pr(\mathrm{LCS}\ge t)\le\alpha+\frac{1}{n+1}$$
 **0.14%** ($0+1/722$).
 
 > **A failure that must be stated first** (or one reviewer sentence dismantles it): the two cells in the
-> D-pure column **are points where the conformal guarantee fails**.
+> D-pure column **are points where the conformal formula used here fails**.
 > D-pure's $\mathrm{LCS}$ takes only a few integer values, with **many ties**. **Conformal coverage itself
 > requires only exchangeability, not a continuous score**; what fails is **this paper's formula** — when
 > translating a quantile into $P(\mathrm{LCS}\ge t)\le\alpha$, if the quantile falls inside a large tie
@@ -4795,7 +4796,7 @@ These three are not three parallel items but **one chain**:
 > **The shortcut does not work** (**set-overlap** metrics are non-identifiable for $\mathrm{ENR}$, §6)
 > → **since this family cannot be substituted, fall back to a point-by-point sweep** → **the sweep
 > translates an integer into a cost ratio** (§5.5) → **and deployment means judging 308 items one by
-> one, i.e. 308 comparisons** (§5.8) — **this last link is not on the chain; it comes with the task and
+> one, i.e. 308 comparisons** (§5.8) — **this last link is not something the chain derives; it comes with the task and
 > no choice of metric avoids it.**
 
 > **The restriction must be stated where the argument opens**: since the abstract and §9.2 both say
@@ -6076,9 +6077,10 @@ A threshold of $t=7$ looks like a single integer. This paper shows that it is **
 **None of the three has ever been written down.** Yet they decide in what sense the system is
 "correct".
 
-> **But these three are not three parallel conclusions** — they are one chain: because this class of
-> metric cannot be substituted (the main result), the threshold is the only thing left to tune;
-> because of the sweep, the threshold becomes a cost ratio.
+> **But these three are not three parallel conclusions.** Two of them are links in one chain: because
+> this class of metric cannot be substituted (the main result), the threshold is the only thing left to
+> tune; because of the sweep, the threshold becomes a cost ratio. **The third — the significance level
+> (§5.8) — is a constraint that comes with the task, not a link in the chain** (why, immediately below).
 > **The chain has three links, and stops there.** The multiple-comparison section (§5.8) **is not on
 > this chain** — **it comes with the task**: deploying means judging 308 items one at a time, i.e. 308
 > comparisons, **which no choice of metric avoids**.

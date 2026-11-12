@@ -7,17 +7,20 @@
 > **Working paper — not peer reviewed.**
 >
 > **Translation status (read this first).** This file is the English edition of a
-> 94,374-character Chinese manuscript. What is translated here in full: the **Abstract** and
+> 95,696-character Chinese manuscript (v16, 2026-11-12). What is translated here in full: the **Abstract** and
 > **§1 Introduction** (§1.1–§1.6). Not yet translated: §2 Related work, §3 Method, §4 Results,
 > §5 Discussion, §6 Limitations, and Appendices A–C. The Chinese source is authoritative for every
 > number; where the two differ, the Chinese wins and this file is wrong.
 >
-> **One deliberate deviation from the Chinese source.** The Chinese Abstract places the 79 stops in
-> "the three days after 11-09". The same paragraph assumes 28 + 3 = 31 days.
-> Only two days (11-10, 11-11) lie after 11-09 inside a 10-12 → 11-11 window, so the literal reading
-> cannot close the arithmetic. Here it is rendered as **"the three days from 11-09 through 11-11
-> (28 + 3 = 31)"** — a wording fix that changes no number. The Chinese source still carries the
-> original phrasing and should be corrected the same way.
+> **The one deviation this file used to carry has now been closed in the source (2026-11-12 18:3x).**
+> The Chinese Abstract used to place the 79 stops in "the three days *after* 11-09", which cannot
+> close the arithmetic — inside a 10-12 → 11-11 window only two days lie after 11-09, yet the same
+> paragraph assumes 28 + 3 = 31. This file had rendered it as "the three days from 11-09 through
+> 11-11". **The Chinese source (v16) has now been corrected the same way and states the arithmetic
+> outright: "79 次集中在 11-09 起的这三天（47 + 31 + 1）".** No number changed; no deviation remains
+> on this point. (Two adjacent sentences were corrected in the same pass: the conditioning-rate table's
+> denominator 750 vs. the marginal rate's 775, and the high-risk window 3–8 → 1–8 turns. Both are in
+> sections not yet translated here.)
 >
 > Nothing in this file is asserted that the released scripts cannot re-derive.
 
@@ -102,8 +105,10 @@ components of quite different weight:
 - **One that is this paper's.** **Misclassification by the governor amplifies an isolated fault into
   a cluster.** The gate's predicates are format-only; on an empty response it can read no text at
   all, so it classifies "nothing was generated" as "you forgot to write the checklist", rejects,
-  triggers a new turn, and that turn is empty too. The evidence is temporal alignment: of 11
-  verifiable rejections, **9 follow an empty response within a median of 3 seconds**; the
+  triggers a new turn, and that turn is empty too. **The evidence, in the order it bears weight**: the
+  gate's own verdict wording — it asserts "you forgot to write the checklist" about a turn that was
+  empty, and that assertion fails upstream 27 times out of 35 (§4.1.3); then, more weakly, timing —
+  of 11 verifiable rejections, **9 follow an empty response within a median of 3 seconds**; the
   denominator is hard too — **22 real faults during the gate's active window, 0 rejections on the
   correct grounds**. **It is neither gray failure (that is "cannot see") nor "the gate was too
   strict" (that is sensitivity), but "it saw, it classified wrongly, and it acted in a way that
@@ -172,10 +177,10 @@ handing in the paper without continuing). The remedy was **to add a gate**: befo
 check that the agent has declared, in the required format, what it did this turn; if not, reject and
 require continuation. Between 18:15 and 19:40 on 9 November the gate was installed, revised four
 times and finally switched off. The logs after it was switched off show the gate did do something —
-it stopped 4 cases of "declaring incomplete and handing in" (internal record of the case). ★ The two
-sources disagree: in the 35-rejection ledger of §4.1.3, only **3** cases of the same type (class C,
-writing "done: 2/3" oneself) can be verified. The missing one is neither merged nor guessed here;
-each place reports its own ledger.
+**Two sources disagree on this count, and both numbers are given.** The case's internal record says
+it stopped **4** cases of "declaring incomplete and handing in"; the 35-rejection ledger of §4.1.3
+verifies only **3** of the same type (class C, writing "done: 2/3" oneself). **The difference of one
+is neither merged nor guessed**; each place reports its own ledger, and the gap is left standing.
 
 The fault did not disappear. From 10 November to 22:30 (**inside the window**) the same fault
 occurred 12 more times; for that whole calendar day it was 31 (Appendix C — the two denominators are
@@ -213,7 +218,10 @@ negative proposition, and it is held to be more valuable than a positive one**:
 > host — each read the same failure through their own observation boundary (**the governed and the
 > researcher propose diagnoses; the governor and the host issue verdicts**), and **not one reading
 > holds**; and the failure of the fourth layer (observation) removes, at the root, the possibility of
-> correction in the first three.
+> correction in the first three. *(The second clause follows from the definition two paragraphs down —
+> if correction requires discovering that the judgement was wrong, then a system that cannot discover
+> it cannot correct. **It is the definition's content, not a further observation**, and it is placed
+> here only because the claim is stated whole.)*
 
 The phenomenon is named **attribution misplaced**, with an operational definition (§5.1). It is not a
 synonym for "a judgement error": it has three necessary conditions, of which the third — **the system
@@ -235,17 +243,30 @@ opposite directions:
 | | Amplification by misclassification (row 3) | Interface refresh (row 5) |
 |---|---|---|
 | Who acts | **The governor** — it makes a judgement and acts on it | The interface — no judgement, only rendering |
-| Verifiable evidence | **Temporal alignment**: rejection follows the empty response by 2–6 s, case by case | Terminal state only; no intermediate state to align |
+| Verifiable evidence | **The verdict's own wording**: the gate's feedback reads "you ran a tool call but did not write the checklist" (quoted from the transcript, §4.1.3), and the fact it asserts does not hold upstream — 27 of 35 times. Timing (2–6 s, case by case) is the **weaker** of the two | Terminal state only; no intermediate state to align |
 | Consequence | One failure becomes a string of failures (countable: 22 faults, 0 correct rejections) | One failure is displayed as another (not countable; interval only) |
 | Can it be refuted | Yes — by showing those rejections coincided with the stops, or share another common cause | Yes — but once refuted nothing remains |
+
+**Two kinds of evidence, and why the timing is the weaker one.** The 2–6 s interval shows only that
+the rejection was a *reaction* rather than a retrospective audit — a rejection following an empty
+turn by minutes could be a later review. **On its own it cannot rule out a clock-bound confound**:
+a read timeout of a few seconds, firing whenever a turn ended empty, would reproduce the same
+intervals while involving no misclassification at all.
+
+What rules that out is a different record, and this is the one the third row rests on: **the gate's
+own verdict wording**, quoted from the transcript — "you ran a tool call but did not write the
+checklist". That sentence **asserts a fact about the upstream turn**, and the assertion fails 27 times
+out of 35 when checked against that turn's text (§4.1.3). A timeout label makes no such assertion and
+**cannot be wrong in this way**. So the misclassification is established by the wording, not by the
+interval; the interval only tells us when it happened.
 
 **That is why the fifth row can only be "open"**: its only support is a terminal-state difference,
 and such a difference has two sources (the old value was overwritten vs the old value never existed),
 which this data cannot separate (external review r01 rejected it on exactly this point).
 **What cannot be separated does not enter the claim; it enters the observations.**
 
-**The third row is different — it cannot be withdrawn, because it is a temporal alignment, not a
-difference that could be explained two ways.** And it links the first three layers: the gate's
+**The third row is different — it cannot be withdrawn on that ground, because it is a temporal
+alignment, not a difference that could be explained two ways.** And it links the first three layers: the gate's
 predicates are format-only → on an empty response it reads no text → it judges "you forgot to write"
 → rejects → triggers a new turn → empty again. **One misreading becomes a string of failures.**
 
@@ -269,7 +290,8 @@ predicates are format-only → on an empty response it reads no text → it judg
    variables explain only **10.49%** of deviance (§4.2.8). **This is stronger than "I cannot explain
    it", because it puts a price on the blind spot.**
 4. **A quantification of one mechanism: amplification by misclassification** — the gate's predicates
-   are format-only; on an empty response it reads no text, so it classifies "nothing was generated"
+   are format-only; on an empty response it therefore reads no text — **that step is what
+   "format-only" means, not an observation** — so it classifies "nothing was generated"
    as "you forgot to write the checklist", rejects, triggers a new turn, and that turn is empty too.
    **The judgement itself is not new** (engineering practice has long had "classification precedes
    response"; the verification is recorded in §4.1.3.1); **what this paper gives is three numbers**:
