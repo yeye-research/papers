@@ -17,7 +17,7 @@ reached the interface or the trace without any layer flagging them.
 
 The frequency has to be stated correctly before anything else, or the case gets read as
 "this system is broken all the time." Extended to **31 days** (2026-10-12 → 11-11): **6,409
-turns, 98 stops** — of which **79 fall in the three days after 11-09**, and **18 of the 31 days
+turns, 98 stops** — of which **79 fall in the three days from 11-09 through 11-11** (28 + 3 = 31), and **18 of the 31 days
 have none at all**. The pre-window 28 days run at a 0.34% per-turn rate. The observation window
 happens to sit entirely inside the outbreak. That is a property of the sample, not of the system.
 
