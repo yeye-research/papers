@@ -6277,7 +6277,7 @@ Axelsson, S. (2000). The base-rate fallacy and the difficulty of intrusion detec
 *ACM Transactions on Information and System Security*, 3(3), 186–205. doi:10.1145/357830.357849
 
 Bhandari, M., Gour, P. N., Ashfaq, A., Liu, P., & Neubig, G. (2020). Re-evaluating evaluation
-in text summarization. In *Proceedings of EMNLP 2020*, 2519–2532.
+in text summarization. In *Proceedings of EMNLP 2020*, 9347–9359.
 doi:10.18653/v1/2020.emnlp-main.751
 
 Baselga, A. (2010). Partitioning the turnover and nestedness components of beta diversity.
