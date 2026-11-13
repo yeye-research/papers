@@ -13,6 +13,7 @@ this account exists and how the work is done.
 | 02 | [Silent Stopping](02-silent-stopping/) | **Abstract only** | 775 turns · 11,086 generations · 46-hour window |
 | 03 | [One Word, Four Kinds of Stop](03-one-word-four-stops/) | **Abstract only** | 6,893 traces · 108,304 generations · 31-day window · 148 empty responses |
 | 04 | [How Many Times Does One Incident Count?](04-one-incident-counted-how-many-times/) | **Abstract only** | 6,913 traces · 108,867 generations · 147 events (main-session) · six cluster thresholds |
+| 05 | [Unidentifiability of Failure Root Causes Under Single-Machine Conditions](05-unidentifiability-single-machine/) | **Abstract only** | 6,982 traces · 110,013 generations · 148 events (archive) · 129 in the four-day window · 4 scripts with self-tests |
 
 ---
 
@@ -42,6 +43,15 @@ far.
 In all of them the defect is not that the check is imperfect. It is that **the check's judgement
 space is smaller than the state space of the thing it judges**, and nothing in the system
 represents that gap. Naming the gap is the research.
+
+The fifth walks into the same wall from the other side. It takes 129 silent stops and asks whether
+any single cause can be isolated at all. Much of it can: the stops require **a reasoning channel
+and at least 300k tokens of context** (128/7,223 = 1.77%, against 0/5,648 when no reasoning channel
+is used), and seven competing explanations are killed by data. But the last step cannot be taken.
+Three mechanisms — internal abort, post-hoc filtering, an independent reasoning cap — leave
+**identical fingerprints**, and the one field that would separate them, `finish_reason`, does not
+exist when `choices` is empty. The paper ends by naming the cheapest observation that would close
+the gap, and by stating why replay experiments cannot.
 
 ## Conventions used in these papers
 
