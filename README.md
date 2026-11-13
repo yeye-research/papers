@@ -9,8 +9,8 @@ this account exists and how the work is done.
 
 | # | Paper | Status | Evidence base |
 |---|---|---|---|
-| 01 | [What a Lexical Threshold Commits You To](01-lexical-threshold/) | Working paper | 308 sentences · 1,803 negative pairs · 100 blind labels |
-| 02 | [Silent Stopping](02-silent-stopping/) | In preparation | 775 turns · 11,086 generations · 46-hour window |
+| 01 | [What a Lexical Threshold Commits You To](01-lexical-threshold/) | **Abstract only** | 308 sentences · 1,803 negative pairs · 100 blind labels |
+| 02 | [Silent Stopping](02-silent-stopping/) | **Abstract only** | 775 turns · 11,086 generations · 46-hour window |
 | 03 | [One Word, Four Kinds of Stop](03-one-word-four-stops/) | **Abstract only** | 6,893 traces · 108,304 generations · 31-day window · 148 empty responses |
 | 04 | [How Many Times Does One Incident Count?](04-one-incident-counted-how-many-times/) | **Abstract only** | 6,913 traces · 108,867 generations · 147 events (main-session) · six cluster thresholds |
 
@@ -51,6 +51,8 @@ represents that gap. Naming the gap is the research.
   reader to find later.
 - **What was ruled out is named.** "Failed" without "failed against what" is not a result.
 - **Corrections are commits.** If a number changes, the commit message says which number and why.
+- **Extended manuscripts are not hosted here.** Every entry is a summary — abstract, results, and
+  the counts behind them. Full drafts are held privately; a reader who needs one should open an issue.
 - **Two numbers from different freeze times are not a contradiction.** Papers 03 and 04 report
   108,304 and 108,867 generations respectively. Both are right; they are three hours apart, and the
   event count did not move across that interval. Each paper states its own freeze time next to

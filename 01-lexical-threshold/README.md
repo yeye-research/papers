@@ -2,7 +2,10 @@
 
 ### Auditing Set-Overlap Metrics in Citation Verification
 
-**Working paper** · Ye Ye · November 2026 · not peer reviewed
+**Abstract only** · the full manuscript (~68,200 words, nine sections, 123 pp typeset) is **not released**.
+What is public here is the summary below and the results it reports.
+
+> 本页只放摘要与结果。英文全稿（约 6.82 万词、九节、排版 123 页）**未公开**。
 
 ---
 
@@ -13,14 +16,6 @@ overlap score and comparing it against a threshold — a bare integer, `7`, in t
 here. This paper asks what that integer commits its operator to, and reports three results:
 the obvious fix does not work, the threshold turns out to be a cost claim nobody wrote down,
 and the error control that a claim of this kind needs is not achievable with this data.
-
-## Files
-
-| File | What it is |
-|---|---|
-| [`paper.md`](paper.md) | Full manuscript, 9 sections, ~68,200 words. Every number carries the script that produces it. |
-| [`paper.pdf`](paper.pdf) | Typeset version (123 pp), figures and tables in place. |
-| [`figures/`](figures/) | Both figures as standalone PDFs. |
 
 ## The three results
 
@@ -57,13 +52,6 @@ comes entirely from how "unclear" labels are treated; and category proportions m
 sentences moves the central estimate from 26.57% to 31.39% — a 4.82-point gap — so the central
 figure is a **magnitude, not a precise value**.
 
-## Reading order, if you have ten minutes
-
-1. Abstract (top of `paper.md`) — the whole argument in 400 words.
-2. §1.4 — what this paper does *not* claim, stated before any result.
-3. §6 — why set-overlap metrics cannot score a decision rule. This is the proof-shaped part.
-4. §8 — limitations. Written to be read by someone trying to break the paper.
-
 ## How the numbers were produced
 
 Every table and every figure cites the script that generates it, and the scripts carry
@@ -71,8 +59,8 @@ self-tests. Where a number was produced by hand, the paper says so. An independe
 re-computation in MATLAB accompanies the statistics, so no figure rests on a single
 implementation.
 
-The replication package is not in this repository yet; it ships with the paper. If you need it
-before then, open an issue.
+The replication package is **not in this repository**. It is held with the manuscript and released
+on request — open an issue if you need it.
 
 ---
 

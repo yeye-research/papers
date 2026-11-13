@@ -2,10 +2,15 @@
 
 ### When a Returned Empty Response Is Recorded as a Completed Answer
 
-**In preparation** · **English edition exists, partly translated** — see **[`paper.md`](paper.md)**:
-Abstract and §1 in English; §2–§6 and appendices still in the Chinese manuscript
-(~93,100 characters, nine sections). Every number in this page should be read against that file's
-"Translation status" table.
+**Abstract only** · the full manuscript (Chinese, ~93,100 characters, nine sections) is **not
+released**. What is public here is the summary below and the findings it reports.
+
+> 本页只放摘要与发现。中文全稿（约 9.31 万字符、九节）**未公开**。
+
+★ This paper describes an **earlier, smaller** observation window than paper 03 and paper 04 in
+this repository (46 hours, then extended to 31 days). It is a separate study, not a draft of
+those; the papers reach different conclusions about what can be measured, and paper 03 states
+where the counting rules diverge.
 
 ---
 
@@ -81,7 +86,7 @@ and their common shape is *explaining a distant unseen cause with a nearby visib
 |---|---|
 | Manuscript (Chinese) | Complete, v15, 93,100 characters, five external audit passes |
 | English edition | **In preparation** |
-| Replication package | Assembled; released with the English edition |
+| Replication package | Assembled; held with the manuscript, released on request |
 
 An English edition is being prepared rather than machine-translated, because the paper's central
 instrument is a distinction between three senses of "not there" — recorded-but-undecidable,
