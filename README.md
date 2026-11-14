@@ -53,6 +53,21 @@ Three mechanisms — internal abort, post-hoc filtering, an independent reasonin
 exist when `choices` is empty. The paper ends by naming the cheapest observation that would close
 the gap, and by stating why replay experiments cannot.
 
+The sixth does what paper 05 leaves open. If the cause cannot be known, what can still be done? It
+begins from the observation that the 129 stops are not scattered noise but an **outbreak**: 46 fall
+inside 78 minutes against a uniform expectation of 1.75 (P ≈ 10⁻⁴⁷), and the same clustering
+collapses 129 events into **26 independent occurrences**, which invalidates the sample size the
+earlier paper was implicitly entitled to use. It then checks twenty design principles borrowed from
+other disciplines against their **preconditions on this machine** rather than against whether anyone
+had applied them — six survive as hard, three as semi-hard, and the other eleven are demoted or
+discarded. What survives is unglamorous: require a liveness proof every turn instead of enumerating
+failure modes; avoid the risk cell (33.4× under independence, **3.4× per session** — both are
+printed); retry only heterogeneously and only after the outbreak window; and attach an action to
+every alert. Two things the report refuses to claim: that avoidance is a fix (it is a measure, and
+it lapses when the condition distribution moves), and that the retry recommendation is validated
+(there are **zero** interventional samples). To certify the post-fix rate needs **407** all-negative
+independent observations; the machine has **87**.
+
 ## Conventions used in these papers
 
 - **A number without a script is not a number.** Each table and figure names the file that
