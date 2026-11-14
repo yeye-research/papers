@@ -104,6 +104,9 @@ stated plainly:
 | 8 h/day as evidence | **rejected** | that section is explicitly a *sensitivity* table ("what assumption would be needed to reverse this"); the first row is the measured window |
 | 129 treated as an exact count | **accepted** | 26 records with missing fields are of unknown status, so 129 is a **lower bound** and 155 an upper bound; all rates use the classifiable 17,543 as denominator and the text states the rate upper bound (0.883%) |
 | median ÷ mean presented as a ratio | **accepted** | now labelled a magnitude hint only; it cannot be read as "the stop cohort's mean is 1.28× the overall" |
+| the outlier P-value was computed on a window chosen after seeing the data | **accepted** | the window is the maximum over **129 sliding starts**; Bonferroni-corrected it moves from −47.3 to **−45.2** and still rejects uniformity |
+| the window may simply have carried more traffic | **rejected by data** | the window had **171 generations in 76.5 min = 2.2/min** against a global 3.1/min — **0.73×, i.e. sparser** |
+| 46 events may be repeated counts of one cluster | **rejected by data** | inside the same window the risk cell holds **46 stops out of 132 (34.8%)** against 1.77% globally — **19.7×** |
 
 A separate literal pass (zero author memory) found twelve items: **seven real** (a table cell
 holding the column total, 5,648, where the bin held 3,414; "two orders of magnitude" for a 20× gap;
@@ -122,9 +125,10 @@ Every figure recomputes from the frozen snapshot (four days of traces, 17,569 ge
 | `_聚集显著.py` | 8 / 8 | sliding window × Poisson upper tail; extension evidence; sensitivity |
 | `_设计效应.py` | 8 / 8 | clustering; two upper-bound conventions; cluster-robust CI |
 | `_L4_判据粗筛.py` | 8 / 8 | three-API triage of the twenty principles |
+| `_投喂台岗位测.py` | 6 / 6 | by-role test of the three feeder APIs (transcription / screening / open critique) |
 
-Delivery gate at freeze: `sha16 = d713c6392e4b5003`, literal-review tickets
-`DSH-20261114-003` / `-004`, fifteen remediation items recorded, no re-review (remediation is
+Delivery gate at freeze: `sha16 = 3a1661a48a32e8f7`, literal-review tickets
+`DSH-20261114-003` / `-004`, eighteen remediation items recorded, no re-review (remediation is
 recorded instead of re-sending — see the series conventions).
 
 ---
