@@ -29,7 +29,16 @@ Length alone is **not** causal. The rate is non-monotonic (3.41% at 325–350k, 
 
 **Boundary — what remains unidentifiable.** Why no body token was ever generated after reasoning ended. Three mechanisms — internal abort, post-hoc filtering, and an independent reasoning cap — produce identical observable fingerprints in `usage` (body = 0, all tokens in `reasoning`, no `finish_reason`). Separating them requires a `finish_reason` that does not exist when `choices` is empty, or server-side logs the client cannot see.
 
-**Why we stopped.** Replay experiments cannot help: at a base rate of **0.735%** (129 of 17,543 classifiable generations), twenty replays yield an all-negative outcome with probability **0.863**. And "0 of 5,648" supports only an upper bound — a true rate at most **0.053%** under 95% one-sided confidence, i.e. at least 20× lower than the reasoning group, not "never happens".
+**Why we stopped.** Replay experiments cannot help: at a base rate of **0.735%** (129 of 17,543 classifiable generations), twenty replays yield an all-negative outcome with probability **0.863**. And "0 of 5,648" supports only an upper bound, not "never happens".
+
+**One number, two conventions (revision 2026-11-14).** That upper bound depends on what counts as an observation.
+
+| unit of observation | 95% upper bound | gap vs the reasoning group (1.084%) | what it assumes |
+|---|---:|---:|---|
+| generation (5,648) | 0.053% | **20.4×** | the 5,648 generations are independent — **false** |
+| **session (580)** | **0.517%** | **2.1×** | full correlation within a session — **most conservative** |
+
+The 5,648 generations fall into **580 sessions**, sharing configuration, time and context, and the stops are demonstrably clustered (46 inside 78 minutes against an expectation of 1.75, P ≈ 10⁻⁴⁷). **This paper stands behind 2.1×. The 20.4× we originally reported holds only under an independence assumption the data violate.** The direction of the finding is unchanged; the magnitude changes by an order. A reader who quoted the earlier figure should quote 2.1× instead.
 
 **Implication.** The investigation yields three things that can be handed over: the conditions under which the service returns empty `choices`; a repairable half of the problem on the client side (retry and alerting); and an explicit statement of what additional observation would be required to close the gap — the single cheapest being a top-level `finish_reason` on empty-`choices` responses.
 
