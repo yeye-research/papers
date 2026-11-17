@@ -14,6 +14,7 @@ this account exists and how the work is done.
 | 03 | [One Word, Four Kinds of Stop](03-one-word-four-stops/) | **Abstract only** | 6,893 traces · 108,304 generations · 31-day window · 148 empty responses |
 | 04 | [How Many Times Does One Incident Count?](04-one-incident-counted-how-many-times/) | **Abstract only** | 6,913 traces · 108,867 generations · 147 events (main-session) · six cluster thresholds |
 | 05 | [Unidentifiability of Failure Root Causes Under Single-Machine Conditions](05-unidentifiability-single-machine/) | **Abstract only** | 6,982 traces · 110,013 generations · 148 events (archive) · 129 in the four-day window · 4 scripts with self-tests |
+| 07 | [The Attribution Ceiling on a Single Machine](07-attribution-ceiling-single-machine/) | **Abstract only** | 7,325 traces · 117,562 generations · 148 empty responses · 36-day record · three slicings |
 
 ---
 
